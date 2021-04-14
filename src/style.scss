@@ -1,0 +1,24 @@
+@import './base/constants';
+@import './base/mixes';
+
+@import './components/header/header';
+@import './components/home/home';
+@import './components/footer/footer';
+@import './components/menuLink/menuLink';
+@import './components/photostudios/photostudios';
+@import './components/photographers/photographers';
+@import './components/contacts/contacts';
+
+body {
+    font-family: 'Montserrat', 'Helvetica', sans-serif;
+}
+
+.container {
+    padding: 0 40px;
+    max-width: 1536px;
+    margin: 0 auto;
+}
+
+.main {
+    min-height: calc(100vh - 70px - 50px);
+}
