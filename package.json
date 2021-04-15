@@ -4,10 +4,11 @@
   "description": "Team project",
   "private": true,
   "scripts": {
+    "server": "nodemon ./server.js",
     "develop": "cross-env NODE_ENV=development webpack --mode development",
     "product": "cross-env NODE_ENV=production webpack --mode production",
     "start": "cross-env NODE_ENV=development webpack-dev-server --mode development",
-    "lint": "eslint --fix src/**/*.jsx"
+    "lint": "eslint --fix src/**/*.jsx server.js"
   },
   "repository": {
     "type": "git",
@@ -54,6 +55,7 @@
     "@babel/polyfill": "^7.10.1",
     "@ramonak/react-progress-bar": "^1.0.3",
     "chart.js": "^2.9.3",
+    "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
@@ -62,7 +64,9 @@
     "react-dom": "^16.13.1",
     "react-id-swiper": "^3.0.0",
     "react-sizeme": "^2.6.12",
-    "swiper": "^6.0.1"
+    "sequelize": "^6.6.2",
+    "swiper": "^6.0.1",
+    "webpack-node-externals": "^2.5.2"
   },
   "main": ".eslintrc.js"
 }
