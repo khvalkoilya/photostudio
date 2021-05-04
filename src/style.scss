@@ -3,19 +3,20 @@
 
 @import './components/header/header';
 @import './components/home/home';
-@import './components/footer/footer';
 @import './components/menuLink/menuLink';
 @import './components/photostudios/photostudios';
 @import './components/photographers/photographers';
 @import './components/contacts/contacts';
+@import './components/map/map';
+@import './components/authoriazion/authorization';
 
 body {
-    font-family: 'Montserrat', 'Helvetica', sans-serif;
+    font-family: 'Roboto', 'Montserrat', sans-serif;
 }
 
 .container {
-    padding: 0 40px;
-    max-width: 1536px;
+    padding: 0 155px;
+    max-width: 970px;
     margin: 0 auto;
 }
 

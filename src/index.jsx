@@ -15,4 +15,4 @@ async function getTest() {
 
 getTest();
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App initialCount={10} />, document.getElementById('root'));

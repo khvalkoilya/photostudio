@@ -3,7 +3,8 @@ import Home from '../components/home/Home';
 import Photostudios from '../components/photostudios/Photostudios';
 import Photographers from '../components/photographers/Photographers';
 import Contacts from '../components/contacts/Contacts';
-import SignIn from '../components/signIn/SignIn';
+import SignIn from '../components/authoriazion/SignIn';
+import Registration from '../components/authoriazion/Registration';
 
 export const MenuLinks = [
   {
@@ -49,16 +50,24 @@ export const UserLinks = [
     id: 0,
     name: 'Вход',
     isForAuthorized: false,
-    // icon: '../../assets/images/flask.svg',
+    icon: '../../assets/images/login.svg',
     title: 'signIn',
     render: (id, title) => <SignIn key={`${id}-${title}`} />,
   },
   {
     id: 1,
+    name: 'Регистрация',
+    isForAuthorized: false,
+    icon: '../../assets/images/login.svg',
+    title: 'registration',
+    render: (id, title) => <Registration key={`${id}-${title}`} />,
+  },
+  {
+    id: 2,
     name: 'Профиль',
     isForAuthorized: true,
-    // icon: '../../assets/images/flask.svg',
+    icon: '../../assets/images/profile.svg',
     title: 'signI1n',
-    render: (id, title) => <SignIn key={`${id}-${title}`} />,
+    render: (id, title) => <Home key={`${id}-${title}`} />,
   },
 ];

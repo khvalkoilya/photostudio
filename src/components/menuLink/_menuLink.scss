@@ -1,9 +1,9 @@
 .menu-item {
-  font-size: 20px;
   border: none;
   outline: none;
-  background-color: $gray;
   cursor: pointer;
+  background-color: $white;
+  color: $black;
 
   &-active {
     text-decoration: underline;
@@ -12,5 +12,9 @@
   &-lock {
     cursor: default;
     opacity: 0.5;
+  }
+
+  &-icon {
+    height: 29px;
   }
 }

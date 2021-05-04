@@ -6,6 +6,7 @@ import UserLink from '../userLink/UserLink';
 const Header = () => {
   const headerLinks = MenuLinks.map((link) => (
     <MenuLink
+      key={`${link.id}-${link.title}`}
       name={link.name}
       id={link.id}
       title={link.title}
@@ -19,10 +20,10 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="logo">KI_Studio</div>
-        <div className="main-nav">
+        <nav className="main-nav">
           {headerLinks}
-        </div>
-        {userLink}
+          {userLink}
+        </nav>
       </div>
     </header>
   );

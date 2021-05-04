@@ -1,3 +1,63 @@
 .home {
-  font-size: 100px;
+  &__welcome {
+    background-color: palevioletred;
+    background-image: url('./assets/images/welcome.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 620px;
+
+    &__title {
+      font-size: 96px;
+      line-height: 100px;
+      width: 600px;
+      color: $gray;
+      padding-top: 70px;
+    }
+
+    &__text {
+      font-size: 42px;
+      line-height: 56px;
+      width: 600px;
+      color: $black;
+      padding-top: 30px;
+    }
+  }
+
+  &__description {
+    &__title {
+      padding-top: 69px;
+      font-size: 48px;
+      text-align: center; 
+    }
+
+    &__text {
+      padding-top: 22px;
+      padding-bottom: 90px;
+      font-size: 36px;
+      line-height: 50px;
+      text-align: justify;
+    }
+  }
+
+  &__photos {
+    background-color: $black;
+    padding-top: 69px;
+
+    & > .container {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &-1 {
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+  }
+
+  &__map {
+    padding: 69px 0;
+    background-color: $black;
+  }
 }

@@ -4,7 +4,7 @@ import { UserLinks } from '../../variables/MenuLinks';
 
 const UserLink = () => {
   const { page, setPage, isAuth } = useContext(Context);
-  const { name, title } = UserLinks.find((element) => element.isForAuthorized === isAuth);
+  const { icon, title } = UserLinks.find((element) => element.isForAuthorized === isAuth);
 
   return (
     <button
@@ -20,8 +20,8 @@ const UserLink = () => {
       // className={`menu-item ${title === page ? 'menu-item-active' : ''
     // } ${!isAuth && !isAuthorized ? 'menu-item-lock' : ''}`}
     >
-      {/* <img src={icon} alt="icon" className="menu-item-icon" /> */}
-      { name }
+      <img src={icon} alt="icon" className="menu-item-icon" />
+      {/* { name } */}
       {/* { !isAuth && lock && <img src={lock} alt="lock" className="lock" /> } */}
     </button>
   );

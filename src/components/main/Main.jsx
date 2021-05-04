@@ -10,9 +10,9 @@ const Main = () => {
   //   .concat(SHORT_STATISTICS);
   const { page } = useContext(Context);
   return (
-    <div className="main">
+    <main className="main">
       {main.map((element) => page === element.title && element.render(element.id, element.title))}
-    </div>
+    </main>
   );
 };
 
