@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './components/app/App';
 import 'normalize.css';
 import './style.scss';
-import test from './utils/api';
+// import test from './utils/api';
 
 // console.log(test());
 // logAllPhotostudios();
 
-async function getTest() {
-  const data = await test();
-  console.log(data);
-}
+// async function getTest() {
+//   const data = await test();
+//   console.log(data);
+// }
 
-getTest();
+// getTest();
 
 ReactDOM.render(<App initialCount={10} />, document.getElementById('root'));

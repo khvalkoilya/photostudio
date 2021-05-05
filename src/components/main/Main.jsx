@@ -8,7 +8,8 @@ const Main = () => {
   //   .concat(ABOUT_US)
   //   .concat(GAMES_VARIABLES)
   //   .concat(SHORT_STATISTICS);
-  const { page } = useContext(Context);
+  const { page, role } = useContext(Context);
+  console.log('role' + role)
   return (
     <main className="main">
       {main.map((element) => page === element.title && element.render(element.id, element.title))}

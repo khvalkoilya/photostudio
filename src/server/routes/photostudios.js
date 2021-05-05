@@ -2,6 +2,8 @@
 const express = require('express');
 const Photostudios = require('../models/photostudios');
 const PricesStudios = require('../models/pricesStudios');
+const Addresses = require('../models/addresses');
+const Cities = require('../models/cities');
 
 const router = express.Router();
 
@@ -33,13 +35,33 @@ const router = express.Router();
 //     .catch((err) => console.log(err));
 // });
 
+function getPrice(element) {
+  return PricesStudios.findByPk(element.price_id);
+}
+
+async function getAddress(element) {
+  const obj = await Addresses.findByPk(element.price_id);
+  const { city } = await Cities.findByPk(obj.city_id);
+  const address = {
+    ...obj.dataValues,
+    city,
+  };
+  return address;
+}
+
 router.get('/', async (req, res) => {
   const data = await Photostudios.findAll();
-  const mas = data.map((element) => (async () => {
-    const { price } = await PricesStudios.findByPk(element.price_id);
+  const promises = data.map((element) => (async () => {
+    const { price } = await getPrice(element);
     element.dataValues.price = price;
+    const address = await getAddress(element);
+    element.dataValues = {
+      ...element.dataValues,
+      price,
+      ...address,
+    };
   })());
-  await Promise.all(mas);
+  await Promise.all(promises);
 
   res.json(data);
 });

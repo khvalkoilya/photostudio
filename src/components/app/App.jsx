@@ -6,6 +6,7 @@ import Main from '../main/Main';
 const App = () => {
   const [page, setPage] = useState('home');
   const [isAuth, setIsAuth] = useState(false);
+  const [role, setRole] = useState(null);
   return (
     <>
       <Context.Provider value={{
@@ -13,6 +14,8 @@ const App = () => {
         setPage,
         isAuth,
         setIsAuth,
+        role,
+        setRole,
       }}
       >
         <Header isAuth={isAuth} />

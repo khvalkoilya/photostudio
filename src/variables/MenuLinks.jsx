@@ -5,6 +5,7 @@ import Photographers from '../components/photographers/Photographers';
 import Contacts from '../components/contacts/Contacts';
 import SignIn from '../components/authoriazion/SignIn';
 import Registration from '../components/authoriazion/Registration';
+import Profile from '../components/profile/Profile';
 
 export const MenuLinks = [
   {
@@ -68,6 +69,6 @@ export const UserLinks = [
     isForAuthorized: true,
     icon: '../../assets/images/profile.svg',
     title: 'signI1n',
-    render: (id, title) => <Home key={`${id}-${title}`} />,
+    render: (id, title) => <Profile key={`${id}-${title}`} />,
   },
 ];

@@ -4,6 +4,8 @@ const fetchData = async (arg) => {
   return result;
 };
 
-const test = () => fetchData('/photostudios');
+const getAccounts = () => fetchData('/accounts');
 
-export default test;
+// const test = () => fetchData('/photostudios');
+
+export default getAccounts;

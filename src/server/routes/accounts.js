@@ -1,14 +1,26 @@
+/* eslint-disable no-param-reassign */
 const express = require('express');
 const Accounts = require('../models/accounts');
+const Roles = require('../models/roles');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  Accounts.findAll()
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => console.log(err));
+function getRole(element) {
+  return Roles.findByPk(element.role_id);
+}
+
+router.get('/', async (req, res) => {
+  const accounts = await Accounts.findAll();
+  const promises = accounts.map((element) => (async () => {
+    const { type } = await getRole(element);
+    element.dataValues = {
+      ...element.dataValues,
+      type,
+    };
+  })());
+  await Promise.all(promises);
+
+  res.json(accounts);
 });
 
 module.exports = router;
