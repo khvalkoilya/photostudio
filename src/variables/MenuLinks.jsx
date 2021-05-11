@@ -68,7 +68,7 @@ export const UserLinks = [
     name: 'Профиль',
     isForAuthorized: true,
     icon: '../../assets/images/profile.svg',
-    title: 'signI1n',
+    title: 'profile',
     render: (id, title) => <Profile key={`${id}-${title}`} />,
   },
 ];

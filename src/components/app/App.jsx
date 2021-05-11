@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Context from '../context/Context';
 import Header from '../header/Header';
 import Main from '../main/Main';
+// import { getPhotostudios } from '../../utils/api';
 
 const App = () => {
   const [page, setPage] = useState('home');
   const [isAuth, setIsAuth] = useState(false);
   const [role, setRole] = useState(null);
+
   return (
     <>
       <Context.Provider value={{

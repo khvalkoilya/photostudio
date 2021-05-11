@@ -5,11 +5,8 @@ import Context from '../context/Context';
 const Main = () => {
   const main = MenuLinks
     .concat(UserLinks);
-  //   .concat(ABOUT_US)
-  //   .concat(GAMES_VARIABLES)
-  //   .concat(SHORT_STATISTICS);
-  const { page, role } = useContext(Context);
-  console.log('role' + role)
+  const { page } = useContext(Context);
+
   return (
     <main className="main">
       {main.map((element) => page === element.title && element.render(element.id, element.title))}

@@ -6,6 +6,36 @@
 
   &-black {
     background-color: $black;
-    color: $white
+    color: $gray;
+  }
+
+  &__name {
+    margin: 0;
+    font-weight: 400;
+    font-size: 36px;
+    padding-top: 37px;
+    margin-bottom: 37px; 
+  }
+
+  &__album {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 37px; 
+  }
+
+  &__info {
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 38px;
+
+    & > p {
+      margin: 0;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__instagram > img {
+    margin-top: 20px;
+    margin-bottom: 50px;
   }
 }

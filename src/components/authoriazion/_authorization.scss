@@ -45,23 +45,67 @@
     display: block;
     border: 1.5px solid $gray;
     color: $gray;
-    padding-left: 50px;
-    padding-right: 42px;
+    padding-left: 47px;
+    padding-right: 39px;
     margin-top: 22px;
     border-radius: 50px;
     outline: none;
   }
 
+  &__input-block {
+    position: relative;
+    &__email-span {
+      position: absolute;
+      top: 0;
+      left: 13px;
+      bottom: 0;
+      margin: auto 0;
+      width: 27px;
+      height: 25px;
+      background: url('./assets/images/email.svg') no-repeat;
+      background-size: cover;
+    }
+  
+    &__password {
+      &-span-before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 17px;
+        bottom: 0;
+        margin: auto 0;
+        width: 20px;
+        height: 24px;
+        background: url('./assets/images/password.svg') no-repeat;
+        background-size: cover;
+      }
+
+      &-span-after {
+        cursor: pointer;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 11px;
+        bottom: 0;
+        margin: auto 0;
+        width: 18px;
+        height: 14px;
+        background: url('./assets/images/eye.svg') no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+
   &__forget {
     font-size: 14px;
     color: $gray;
-    text-align: right;
+    float: right;
     margin-bottom: 0;
     margin-top: 10px;
   }
 
   &__error {
-    margin-top: 4px;
+    margin-top: 34px;
     margin-bottom: 18px;
     height: 19px;
     width: 100%;

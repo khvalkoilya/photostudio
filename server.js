@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 const db = require('./src/server/config/database');
 
@@ -11,6 +12,9 @@ db.sync()
 
 const app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 const PORT = process.env.PORT || '8080';
 
 app.use(express.static(path.join(__dirname, '/dist')));
@@ -18,8 +22,6 @@ app.use(express.static(path.join(__dirname, '/dist')));
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
-
-// Get photostudios
 
 app.use('/photostudios', require('./src/server/routes/photostudios'));
 app.use('/accounts', require('./src/server/routes/accounts'));

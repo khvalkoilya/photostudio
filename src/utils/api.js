@@ -4,8 +4,36 @@ const fetchData = async (arg) => {
   return result;
 };
 
+// const fetchDataPost = async (url, obj) => {
+//   // const res = await fetch(url, {
+//   //   method: 'POST',
+//   //   body: data,
+//   // });
+//   // const result = await res.json();
+//   // console.log(result)
+//   // return result;
+//   // console.log(obj)
+
+//   // const data = new FormData();
+//   // data.append('json', JSON.stringify(obj));
+
+//   // console.log(data)
+
+//   await fetch(url, {
+//     method: 'POST',
+//     body: obj,
+//   });
+//   // const content = await rawResponse.json();
+
+//   // console.log(content);
+// };
+
 const getAccounts = () => fetchData('/accounts');
+// const setAccount = (data) => fetchDataPost('/accounts', data);
+const getPhotostuios = () => fetchData('/photostudios');
 
-// const test = () => fetchData('/photostudios');
-
-export default getAccounts;
+export {
+  getAccounts,
+  // setAccount,
+  getPhotostuios,
+};

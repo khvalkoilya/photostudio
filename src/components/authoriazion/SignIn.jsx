@@ -1,7 +1,18 @@
-import React, { useState, useContext, useEffect, useRef } from 'react';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, {
+  useState,
+  useContext,
+  useEffect,
+  useRef,
+} from 'react';
 import Context from '../context/Context';
-import getAccounts from '../../utils/api';
-import ACCOUNTS_TEST from '../../variables/testAccounts';
+import {
+  fetchAccounts,
+  handleEmail,
+  handlePassword,
+  showPassword,
+} from './utils';
 
 const SignIn = () => {
   const { setPage, setIsAuth, setRole } = useContext(Context);
@@ -10,27 +21,19 @@ const SignIn = () => {
   const [error, setError] = useState('');
   const [accounts, setAccounts] = useState(null);
 
-  const inputEl = useRef(null);
+  const inputEmail = useRef(null);
+  const inputPassword = useRef(null);
+
+  function badResult(text) {
+    setEmail('');
+    setPassword('');
+    inputEmail.current.focus();
+    setError(text);
+  }
+
   useEffect(() => {
-    async function fetchAccounts() {
-      try {
-        const response = await getAccounts();
-        setAccounts(response);
-      } catch (err) {
-        setAccounts(ACCOUNTS_TEST);
-        console.error(err.message);
-      }
-    }
-    fetchAccounts();
+    fetchAccounts(setAccounts);
   }, []);
-
-  function handleEmail(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePassword(e) {
-    setPassword(e.target.value);
-  }
 
   function handleSignIn(e) {
     e.preventDefault();
@@ -42,16 +45,10 @@ const SignIn = () => {
         setRole(credentials.type);
         setPage('home');
       } else {
-        setEmail('');
-        setPassword('');
-        inputEl.current.focus();
-        setError('Введен неправильный пароль');
+        badResult('Введен неправильный пароль');
       }
     } else {
-      setEmail('');
-      setPassword('');
-      inputEl.current.focus();
-      setError('Введен неправильный email');
+      badResult('Введен неправильный email');
     }
   }
 
@@ -62,23 +59,36 @@ const SignIn = () => {
           <h1 className="authorization__title">Welcome</h1>
           <h2 className="authorization__name-company">KI_Studio</h2>
           <p className="authorization__description">Введите свою почту и пароль, чтобы войти</p>
-          <input
-            value={email}
-            onChange={(e) => handleEmail(e)}
-            name="email"
-            type="text"
-            placeholder="Email"
-            ref={inputEl}
-            className="authorization__email"
-          />
-          <input
-            value={password}
-            onChange={(e) => handlePassword(e)}
-            name="password"
-            type="password"
-            placeholder="Password"
-            className="authorization__password"
-          />
+          <div className="authorization__input-block">
+            <span className="authorization__input-block__email-span" />
+            <input
+              value={email}
+              onChange={(e) => handleEmail(e, setEmail)}
+              name="email"
+              type="text"
+              placeholder="Email"
+              ref={inputEmail}
+              className="authorization__email"
+            />
+          </div>
+          <div className="authorization__input-block">
+            <span className="authorization__input-block__password-span-before" />
+            <input
+              value={password}
+              onChange={(e) => handlePassword(e, setPassword)}
+              name="password"
+              type="password"
+              placeholder="Password"
+              ref={inputPassword}
+              className="authorization__password"
+            />
+            <span
+              className="authorization__input-block__password-span-after"
+              onClick={
+                () => showPassword(inputPassword)
+              }
+            />
+          </div>
           <p className="authorization__forget">Забыли пароль?</p>
           <p className="authorization__error">{error}</p>
           <button
