@@ -8,7 +8,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
-// import { setAccount } from '../../utils/api';
+import { setAccount } from '../../utils/api';
 import Context from '../context/Context';
 import {
   fetchAccounts,
@@ -44,8 +44,9 @@ const Registration = () => {
       password: passwordFirst,
       type: 'user',
     };
+    setAccount(currentAccount)
 
-    setAccounts(accounts.concat(currentAccount));
+    // setAccounts(accounts.concat(currentAccount));
   }
 
   useEffect(() => {
