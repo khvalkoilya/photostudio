@@ -5,7 +5,7 @@ const PhotostudioBlock = ({ data, id }) => {
   const isEven = () => !!(id % 2);
 
   const images = data.album.map((link) => (
-    <img src={link} className="photostudio__image" alt="studio_image" />
+    <img src={link} className="photostudio__image" alt="studio_image" key={link} />
   ));
 
   return (
@@ -21,10 +21,6 @@ const PhotostudioBlock = ({ data, id }) => {
             <p className="photostudio__address">{`г.${data.city} ул.${data.street} д.${data.house}`}</p>
             <p className="photostudio__price">{`Стоимость от ${data.price} руб`}</p>
             <p className="photostudio__telephone">{data.telephone}</p>
-            {/* <a
-              className={`photostudio__instagram ${!isEven() ? 'photostudio-black' : ''}`}
-              href={`https://www.instagram.com/${data.instagram_account}/`}
-            /> */}
             <a className="photostudio__instagram" href={`https://www.instagram.com/${data.instagram_account}/`}>
               <img
                 src={`${!isEven() ? '../../assets/images/instagram-white.svg' : '../../assets/images/instagram-black.svg'}`}
