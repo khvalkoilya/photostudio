@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect } from 'react';
-import PhotostudioBlock from './PhotographerBlock';
+import PhotographerBlock from './PhotographerBlock';
 // import { getPhotostuios } from '../../utils/api';
 import PHOTOGRAPHERS_TEST from '../../variables/testPhotographers';
 
@@ -26,14 +26,15 @@ const Photographers = () => {
   }, []);
 
   const photographersBlock = photographersData.map((data, id) => (
-    <PhotostudioBlock
+    <PhotographerBlock
       data={data}
       id={id}
-      key={`${data.name + data.description}`}
+      key={`${data.name + data.email}`}
     />
   ));
 
   function sortPhotographers(type) {
+    console.log(photographersData)
     switch (type) {
       case 'name': {
         photographersData.sort((a, b) => {
@@ -69,6 +70,7 @@ const Photographers = () => {
       }
       default: break;
     }
+    console.log(photographersData)
     setPhotographersData([].concat(photographersData));
   }
 

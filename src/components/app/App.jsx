@@ -4,7 +4,7 @@ import Header from '../header/Header';
 import Main from '../main/Main';
 
 const App = () => {
-  const [page, setPage] = useState('photographers');
+  const [page, setPage] = useState('home');
   const [isAuth, setIsAuth] = useState(false);
   const [role, setRole] = useState(null);
 

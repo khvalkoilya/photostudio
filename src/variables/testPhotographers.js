@@ -13,6 +13,34 @@ const PHOTOGRAPHERS_TEST = [
       '../../assets/images/photographers/1.5.png',
     ],
   },
+  {
+    name: 'Валера Кортник',
+    instagram_account: 'kit',
+    price: 28,
+    telephone: '+375 (33) 744-47-14',
+    email: 'V.Kortnik18@gmail.com',
+    album: [
+      '../../assets/images/photographers/2.1.png',
+      '../../assets/images/photographers/2.2.png',
+      '../../assets/images/photographers/2.3.png',
+      '../../assets/images/photographers/2.4.png',
+      '../../assets/images/photographers/2.5.png',
+    ],
+  },
+  {
+    name: 'Василиса Древнеева',
+    instagram_account: 'color',
+    price: 30,
+    telephone: '+375 (29) 212-45-23',
+    email: 'Vas.Drev_02@gmail.com',
+    album: [
+      '../../assets/images/photographers/3.1.png',
+      '../../assets/images/photographers/3.2.png',
+      '../../assets/images/photographers/3.3.png',
+      '../../assets/images/photographers/3.4.png',
+      '../../assets/images/photographers/3.5.png',
+    ],
+  },
 ];
 
 export default PHOTOGRAPHERS_TEST;
