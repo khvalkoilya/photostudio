@@ -11,14 +11,7 @@ const Photographers = () => {
   const [isReduceName, setIsReduceName] = useState(true);
 
   useEffect(() => {
-    async function fetchPhotographers() {
-      // try {
-      //   const response = await getPhotostuios();
-      //   setPhotostudiosData(response);
-      // } catch (err) {
-      //   setPhotographersData(PHOTOGRAPHERS_TEST);
-      //   console.error(err.message);
-      // }
+    function fetchPhotographers() {
       setPhotographersData(PHOTOGRAPHERS_TEST);
     }
 
@@ -34,7 +27,6 @@ const Photographers = () => {
   ));
 
   function sortPhotographers(type) {
-    console.log(photographersData)
     switch (type) {
       case 'name': {
         photographersData.sort((a, b) => {
@@ -70,7 +62,6 @@ const Photographers = () => {
       }
       default: break;
     }
-    console.log(photographersData)
     setPhotographersData([].concat(photographersData));
   }
 

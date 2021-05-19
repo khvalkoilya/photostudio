@@ -8,7 +8,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
-import { setAccount } from '../../utils/api';
+// import { setAccount } from '../../utils/api';
 import Context from '../context/Context';
 import {
   fetchAccounts,
@@ -39,14 +39,15 @@ const Registration = () => {
   }
 
   function saveAccount() {
-    const currentAccount = {
-      login: email,
-      password: passwordFirst,
-      type: 'user',
-    };
-    setAccount(currentAccount)
+    const currentAccount = [
+      {
+        login: email,
+        password: passwordFirst,
+        type: 'user',
+      },
+    ];
 
-    // setAccounts(accounts.concat(currentAccount));
+    setAccounts(accounts.concat(currentAccount));
   }
 
   useEffect(() => {
@@ -65,7 +66,7 @@ const Registration = () => {
         badResult('Пароли не совпадают');
       } else {
         try {
-          saveAccount(); // need bd
+          saveAccount();
           setError('');
           setIsAuth(true);
           setRole('user');
